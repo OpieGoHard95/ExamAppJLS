@@ -18,7 +18,7 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
 
 	// these are all of the items being first defined by their names
 	private HorizontalArrangement line1, line2, line3;
-	private Button incButton;
+	private Button dubButton;
 	private Label resultLabel;
 	private Label promptLabel;
 	private TextBox inputBox;
@@ -44,7 +44,7 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
      inputBox.NumbersOnly(true);
      // Makes the textbox only accept numbers
    
-     incButton = new Button(line2,"Double it:"); 
+     dubButton = new Button(line2,"Double it:"); 
      // creates the button used to double the number and places it in the second HA and then gives it text
      
      resultLabel = new Label(line3,"");
@@ -59,7 +59,7 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
  public boolean dispatchEvent(Component component, String id, String eventName,
          Object[] args) {
  	
-	    if (component.equals(incButton) && eventName.equals("Click")){
+	    if (component.equals(dubButton) && eventName.equals("Click")){
 	    	temp = Integer.parseInt(inputBox.Text());
 	    	temp = temp * 2;
 	    	resultLabel.Text(String.valueOf(temp));

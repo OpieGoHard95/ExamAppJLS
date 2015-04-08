@@ -10,7 +10,6 @@ import com.google.devtools.simple.runtime.components.android.Button;
 import com.google.devtools.simple.runtime.components.android.Label;
 import com.google.devtools.simple.runtime.components.android.HorizontalArrangement;
 import com.google.devtools.simple.runtime.components.android.TextBox;
-import com.google.devtools.simple.runtime.components.android.AccelerometerSensor;
 
 import com.google.devtools.simple.runtime.events.EventDispatcher;
 // this imports all of the items we will need for the app
@@ -18,12 +17,11 @@ import com.google.devtools.simple.runtime.events.EventDispatcher;
 public class ExamActivity extends Form implements HandlesEventDispatching {
 
 	// these are all of the items being first defined by their names
-	private HorizontalArrangement line1, line2, line3, line4, line5;
+	private HorizontalArrangement line1, line2, line3;
 	private Button incButton;
 	private Label resultLabel;
 	private Label promptLabel;
 	private TextBox inputBox;
-	private Label outputLabel;
 	int temp;
 	
 
@@ -36,7 +34,6 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
      line1 = new HorizontalArrangement(this);
      line2 = new HorizontalArrangement(this);
      line3 = new HorizontalArrangement(this);
-     line4 = new HorizontalArrangement(this);
 // These define the new Horizontal Arrangements (HA) and places them on the screen
      
      
@@ -53,8 +50,6 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
      resultLabel = new Label(line3,"");
      // creates a new label where the results will show and puts it in the third HA
      
-     outputLabel = new Label(line4, "");
-     // creates a new label and places it in the fourth HA
  
      EventDispatcher.registerEventForDelegation(this, "ButtonClick", "Click");
      // This gives the program an event to look for
@@ -68,14 +63,10 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
 	    	temp = Integer.parseInt(inputBox.Text());
 	    	temp = temp * 2;
 	    	resultLabel.Text(String.valueOf(temp));
+	    }
 	        return true;
 	     } 
 	    // This doubles the number given and then prints it out
 	    
-	    if (component.equals(resultLabel) && eventName.equals("Click")) {
-	    	outputLabel.Text("You pushed me!!");
-	    	return true;
-	    }
-    return true;
-	} 
+ 
 } 
